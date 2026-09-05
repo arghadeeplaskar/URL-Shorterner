@@ -58,7 +58,17 @@ export default function HomePage() {
 
       {/* Clean Footer */}
       <footer className="relative z-10 w-full border-t border-border/40 py-6 px-4 text-center text-xs text-muted-foreground">
-        <p>© 2025 D4XA1 Tools • Simple & Private URL Shortener</p>
+        <p>
+          © 2025 D4XA1 Tools • Simple & Private URL Shortener • Developed by{" "}
+          <a
+            href="https://github.com/arghadeeplaskar"
+            target="_blank"
+            rel="noreferrer"
+            className="text-foreground hover:text-primary transition-colors font-medium underline underline-offset-4"
+          >
+            Agdl(Arghadeep Laskar)
+          </a>
+        </p>
       </footer>
     </div>
   )

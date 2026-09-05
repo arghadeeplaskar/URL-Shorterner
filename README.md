@@ -113,4 +113,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-Developed by **[Arghadeep Laskar](https://github.com/arghadeeplaskar)**.
+Developed by **[Agdl(Arghadeep Laskar)](https://github.com/arghadeeplaskar)**.
