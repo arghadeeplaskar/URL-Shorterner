@@ -7,10 +7,14 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-A blazingly fast, modern, and privacy-focused URL shortener built with **Next.js 15 (App Router)**, **React 19**, and **Tailwind CSS**. Features custom vanity aliases, instant vector QR code generation, click telemetry, and privacy-first client-side routing.
+A blazingly fast, modern, and privacy-focused URL shortener built with **Next.js 16 (Turbopack)**, **React 19**, and **Tailwind CSS**. Features custom vanity aliases, instant vector QR code generation, click telemetry, and privacy-first client-side routing.
 
 <p align="center">
   <img src="public/1.gif" alt="D4XA1 URL Shortener Demo" width="100%" />
+  <br />
+  <a href="https://shortern-link-website.vercel.app/">
+    <img src="https://img.shields.io/badge/🔗_Visit_Live_Website-shortern--link--website.vercel.app-7928CA?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Website" />
+  </a>
 </p>
 
 ---
