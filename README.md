@@ -8,6 +8,10 @@
 
 A blazingly fast, modern, and privacy-focused URL shortener built with **Next.js 15 (App Router)**, **React 19**, and **Tailwind CSS**. Features custom vanity aliases, instant vector QR code generation, click telemetry, and privacy-first client-side routing.
 
+<p align="center">
+  <img src="public/1.gif" alt="D4XA1 URL Shortener Demo" width="100%" />
+</p>
+
 ---
 
 ## ✨ Features
