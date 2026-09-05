@@ -1,0 +1,291 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.005 270);
+  --foreground: oklch(0.14 0.02 270);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.14 0.02 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.14 0.02 270);
+  --primary: oklch(0.55 0.23 285);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.01 270);
+  --secondary-foreground: oklch(0.2 0.02 270);
+  --muted: oklch(0.94 0.01 270);
+  --muted-foreground: oklch(0.52 0.02 270);
+  --accent: oklch(0.93 0.02 270);
+  --accent-foreground: oklch(0.2 0.02 270);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.015 270);
+  --input: oklch(0.88 0.015 270);
+  --ring: oklch(0.58 0.22 280);
+  --radius: 0.75rem;
+
+  --brand-purple: oklch(0.6 0.24 290);
+  --brand-blue: oklch(0.65 0.19 250);
+  --brand-cyan: oklch(0.75 0.17 210);
+  --brand-emerald: oklch(0.72 0.18 160);
+
+  --glass-bg: color-mix(in oklab, var(--card) 65%, transparent);
+  --glass-border: color-mix(in oklab, var(--border) 60%, transparent);
+}
+
+.dark {
+  --background: oklch(0.11 0.015 275);
+  --foreground: oklch(0.98 0.005 270);
+  --card: oklch(0.15 0.02 275);
+  --card-foreground: oklch(0.98 0.005 270);
+  --popover: oklch(0.15 0.02 275);
+  --popover-foreground: oklch(0.98 0.005 270);
+  --primary: oklch(0.65 0.22 280);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.19 0.025 275);
+  --secondary-foreground: oklch(0.95 0.01 270);
+  --muted: oklch(0.19 0.02 275);
+  --muted-foreground: oklch(0.65 0.02 270);
+  --accent: oklch(0.22 0.03 275);
+  --accent-foreground: oklch(0.98 0.005 270);
+  --destructive: oklch(0.45 0.16 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.24 0.025 275);
+  --input: oklch(0.24 0.025 275);
+  --ring: oklch(0.65 0.22 280);
+
+  --brand-purple: oklch(0.65 0.24 290);
+  --brand-blue: oklch(0.68 0.2 250);
+  --brand-cyan: oklch(0.78 0.18 210);
+  --brand-emerald: oklch(0.75 0.19 160);
+
+  --glass-bg: color-mix(in oklab, oklch(0.14 0.02 275) 75%, transparent);
+  --glass-border: color-mix(in oklab, oklch(0.3 0.03 275) 80%, transparent);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Background animated glow ambient */
+#particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(1000px 700px at 15% 15%, oklch(0.2 0.09 290 / 0.55), transparent 60%),
+    radial-gradient(900px 600px at 85% 25%, oklch(0.22 0.09 240 / 0.5), transparent 60%),
+    radial-gradient(1100px 800px at 50% 90%, oklch(0.18 0.08 270 / 0.45), transparent 65%);
+}
+
+/* Glassmorphic panels */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    0 20px 40px -15px oklch(0 0 0 / 0.35),
+    0 0 0 1px oklch(1 1 1 / 0.05) inset;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-panel:hover {
+  border-color: color-mix(in oklab, var(--glass-border) 60%, var(--brand-purple) 40%);
+  box-shadow: 
+    0 24px 48px -12px oklch(0 0 0 / 0.45),
+    0 0 25px -5px oklch(0.65 0.2 280 / 0.15),
+    0 0 0 1px oklch(1 1 1 / 0.08) inset;
+}
+
+.glass-subtle {
+  background: color-mix(in oklab, var(--secondary) 40%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 50%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+}
+
+/* High-tech Gradient Buttons */
+.btn-glow {
+  position: relative;
+  background-image: linear-gradient(135deg, var(--brand-purple), var(--brand-blue));
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  box-shadow: 
+    0 4px 14px 0 oklch(0.6 0.22 280 / 0.35),
+    0 0 0 1px oklch(1 1 1 / 0.15) inset;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.btn-glow:hover::after {
+  left: 140%;
+  transition: all 0.75s ease-in-out;
+}
+
+.btn-glow:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 6px 22px 0 oklch(0.6 0.24 280 / 0.5),
+    0 0 28px 2px oklch(0.68 0.2 250 / 0.35),
+    0 0 0 1px oklch(1 1 1 / 0.25) inset;
+}
+
+.btn-glow:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Secondary modern button */
+.btn-secondary-modern {
+  @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg;
+  background: color-mix(in oklab, var(--secondary) 60%, transparent);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: all 0.18s ease;
+}
+
+.btn-secondary-modern:hover {
+  background: color-mix(in oklab, var(--secondary) 90%, transparent);
+  border-color: color-mix(in oklab, var(--border) 60%, var(--primary) 40%);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-modern:active {
+  transform: scale(0.98);
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, oklch(0.85 0.1 270) 70%, var(--brand-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-blue) 50%, var(--brand-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing border beam */
+.border-beam {
+  position: relative;
+}
+
+.border-beam::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--brand-purple) 30%,
+    var(--brand-cyan) 50%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: borderBeam 6s linear infinite;
+}
+
+@keyframes borderBeam {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Custom modern scrollbar for history list */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--border) 80%, transparent);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Radar pulse animation */
+@keyframes pingSlow {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.radar-ping {
+  animation: pingSlow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Floating animation */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: floatY 5s ease-in-out infinite;
+}
